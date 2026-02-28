@@ -72,8 +72,8 @@
     <script>
       const api = 'https://thunderstore.io/c/ultrakill/api/v1/package/';
 	  
-      const lastMajorUpdate = Date.parse('2025-02-24T18:01:12.000000Z');
-      const lastMinorUpdate = Date.parse('2025-03-26T15:25:26.000000Z');
+      const lastMajorUpdate = Date.parse('2026-02-25T01:09:41.000000Z');
+      // const lastMinorUpdate = Date.parse('2025-03-26T15:25:26.000000Z');
 	  const exceptions = ["BepInEx-BepInExPack", "ebkr-r2modman", "sinai-dev-UnityExplorer", "marcelokula1-UnityExplorer", "LethalCompanyModding-UnityDebuggerAssistant", "Kesomannen-GaleModManager"]
 	  
       let data = [];
@@ -112,15 +112,14 @@
           card.className = 'col';
           let entryClass, isItWorking, description;
           let updateDate = Date.parse(entry.versions[0].date_created);
-		  
-		  if (updateDate > lastMinorUpdate || exceptions.includes(entry.full_name)) {
+		  if (/*updateDate > lastMinorUpdate*/ updateDate > lastMajorUpdate || exceptions.includes(entry.full_name)) {
 			isItWorking = 'WORKS';
 			description = 'The mod is up-to-date';
 			entryClass = 'bg-success text-white';
-		  } else if (updateDate > lastMajorUpdate) {
+		  /*} else if (updateDate > lastMajorUpdate) {
 			entryClass = 'bg-warning';
 			isItWorking = 'MOST LIKELY';
-			description = 'The mod is up-to-date but its latest version is older than the recent ULTRAKILL patch';
+			description = 'The mod is up-to-date but its latest version is older than the recent ULTRAKILL patch';*/
 		  } else {
 			entryClass = 'bg-danger text-white';
 			isItWorking = 'UNLIKELY';
